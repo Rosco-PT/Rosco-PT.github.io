@@ -5,7 +5,8 @@
 
     //#region VARIAVEIS GLOBAIS
 
-let textJS1 = document.getElementById('text1');    
+let textJS1 = document.getElementById('text1');
+let textcontador = document.getElementById('contador');
 let bnewgame = document.getElementById('button1');    
 let bhit = document.getElementById('button2');    
 let bstop = document.getElementById('button3');    
@@ -22,7 +23,9 @@ let start = false,
     playerCards = [], 
     dealerCards = [],
     playerScore = 0,
-    dealerScore = 0;
+    dealerScore = 0,
+    contadorJogador = 0,
+    contadorDealer = 0;
 
     //#endregion
 
@@ -181,8 +184,12 @@ function showstatus(){
     if(perda){
         if(ganho){
             textJS1.innerText += "GANHASTE!";
+            contadorJogador++;
+            textcontador.innerText = "Dealer: " + contadorDealer + " | Jogador: " + contadorJogador;
         }else{
             textJS1.innerText += "Dealer ganhou, boa sorte para a próxima. :(";
+            contadorDealer++;
+            textcontador.innerText = "Dealer: " + contadorDealer + " | Jogador: " + contadorJogador;
         }
         bnewgame.style.display = 'inline-block';
         bhit.style.display = 'none';
